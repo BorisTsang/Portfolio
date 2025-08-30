@@ -4,7 +4,7 @@ use leptos::prelude::*;
 pub fn Header() -> impl IntoView {
     view! {
         <header>
-            <h1>"My Portfolio"</h1>
+            //<h1>"My Portfolio"</h1>
         </header>
     }
 }

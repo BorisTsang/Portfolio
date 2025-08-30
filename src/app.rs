@@ -1,9 +1,9 @@
 use leptos::prelude::*;
+use leptos_router::{components::{Router, Route, Routes}, path};
 use leptos_meta::*;
-// TODO: add routers
 
-use crate::pages::{home::HomePage, projects::Projects};
-use crate::components::{header::Header, contact::Contact, footer::Footer};
+use crate::pages::{fallback::FallbackPage, home::HomePage, projects::Projects};
+use crate::components::{header::Header, footer::Footer};
 
 #[component]
 pub fn App() -> impl IntoView {
@@ -12,6 +12,7 @@ pub fn App() -> impl IntoView {
     // TODO: add signal for title
     view! {
         <Title text="Boris Tsang"/>
+
         <Script>
             "function smoothScrollTo(targetId) {
                 const element = document.getElementById(targetId);
@@ -21,10 +22,17 @@ pub fn App() -> impl IntoView {
             }"
         </Script>
 
-        <Header/>
-        <HomePage/>
-        <Contact/>
-        <Footer/>
+        <Router>
+            <div class="app">
+                <Header/>
+                <main class="main-content">
+                    <Routes fallback=FallbackPage>
+                        <Route path=path!("/") view=HomePage/>
+                        <Route path=path!("/projects") view=Projects/>
+                    </Routes>
+                </main>
+                <Footer/>
+            </div>
+        </Router>
     }
 }
-
