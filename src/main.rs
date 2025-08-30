@@ -2,6 +2,7 @@ use leptos::prelude::*;
 
 mod app;
 mod pages;
+mod components;
 
 fn main() {
     console_error_panic_hook::set_once();

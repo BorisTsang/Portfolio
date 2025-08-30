@@ -1,9 +1,11 @@
-use leptos::prelude::*;
-// use crate::pages::home::{Hero, Intro};
+use leptos::*;
+use crate::pages::home::{Hero, Technologies, Projects};
 
 #[component]
 pub fn HomePage() -> impl IntoView {
     view! {
-        <h1>"Home"</h1>
+        <Hero/>
+        <Technologies/>
+        <Projects/>
     }
 }

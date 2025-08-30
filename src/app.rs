@@ -3,6 +3,7 @@ use leptos_meta::*;
 // TODO: add routers
 
 use crate::pages::{home::HomePage, projects::Projects};
+use crate::components::{header::Header, contact::Contact, footer::Footer};
 
 #[component]
 pub fn App() -> impl IntoView {
@@ -20,7 +21,10 @@ pub fn App() -> impl IntoView {
             }"
         </Script>
 
+        <Header/>
         <HomePage/>
+        <Contact/>
+        <Footer/>
     }
 }
 
