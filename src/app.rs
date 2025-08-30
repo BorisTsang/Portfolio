@@ -1,12 +1,8 @@
 use leptos::prelude::*;
 use leptos_meta::*;
-/*
-use crate::components::{
-    contact::Contact,
-    header::Header,
-    projects::Projects,
-};
-*/
+// TODO: add routers
+
+use crate::pages::{home::HomePage, projects::Projects};
 
 #[component]
 pub fn App() -> impl IntoView {
@@ -15,6 +11,16 @@ pub fn App() -> impl IntoView {
     // TODO: add signal for title
     view! {
         <Title text="Boris Tsang"/>
-        <h1>Welcome!</h1>
+        <Script>
+            "function smoothScrollTo(targetId) {
+                const element = document.getElementById(targetId);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }"
+        </Script>
+
+        <HomePage/>
     }
 }
+
