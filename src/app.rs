@@ -2,7 +2,7 @@ use leptos::prelude::*;
 use leptos_router::{components::{Router, Route, Routes}, path};
 use leptos_meta::*;
 
-use crate::pages::{fallback::FallbackPage, home::HomePage, projects::Projects};
+use crate::pages::{notfound::NotFound, home::HomePage, projects::Projects};
 use crate::components::{header::Header, footer::Footer};
 
 #[component]
@@ -26,7 +26,7 @@ pub fn App() -> impl IntoView {
             <div class="app">
                 <Header/>
                 <main class="main-content">
-                    <Routes fallback=FallbackPage>
+                    <Routes fallback=NotFound>
                         <Route path=path!("/") view=HomePage/>
                         <Route path=path!("/projects") view=Projects/>
                     </Routes>
