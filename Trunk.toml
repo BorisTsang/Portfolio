@@ -1,0 +1,9 @@
+[build]
+target = "index.html"
+dist_dir = "dist"
+public_url = "/"
+
+[[hooks]]
+stage = "post_build"
+command = "sh"
+command_arguments = ["-c", "cp ./target/main.css $TRUNK_STAGING_DIR/"]
