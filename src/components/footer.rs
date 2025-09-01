@@ -1,44 +1,47 @@
 use leptos::prelude::*;
 use stylers::style;
+use js_sys::Date;
 
 #[component]
 pub fn Footer() -> impl IntoView {
-    let css = style! {
+    let year = Date::new_0().get_full_year().to_string();
+
+    let css = style! { "Footer",
         .footer {
-            background-color: #f9f9f9;  /* Off-white, minimalistic */
-            color: #333333;  /* Dark text for readability */
-            padding: 40px 0;  /* Increased vertical padding for thicker look */
-            text-align: center;  /* Centered content */
-            font-family: Arial, sans-serif;  /* Clean font */
-            font-size: 16px;  /* Slightly larger base font size */
+            background-color: #f9f9f9;
+            color: #333333;
+            padding: 40px 0;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
         }
         .container {
-            max-width: 1200px;  /* Standard container width */
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 30px;  /* More horizontal padding for spaciousness */
+            padding: 0 30px;
         }
         .footer-socials {
             display: flex;
-            justify-content: center;  /* Center icons */
-            gap: 30px;  /* Larger gap for prominence */
-            margin-bottom: 20px;  /* More space below socials */
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
         }
         .social-icon {
-            width: 32px;  /* Larger icons for bolder appearance */
+            width: 32px;
             height: 32px;
-            color: #555555;  /* Slightly darker gray for contrast */
-            transition: color 0.3s ease;  /* Smooth hover effect */
+            color: #555555;
+            transition: color 0.3s ease;
         }
         .social-icon:hover {
-            color: #007bff;  /* Blue hover for interactivity */
+            color: #007bff;
         }
         .footer-bottom {
-            padding-top: 20px;  /* Space instead of border for separation */
+            padding-top: 20px;
         }
         p {
             margin: 0;
-            font-size: 18px;  /* Larger text for copyright */
-            font-weight: 500;  /* Medium weight for emphasis */
+            font-size: 18px;
+            font-weight: 500;
         }
     };
 
@@ -68,14 +71,9 @@ pub fn Footer() -> impl IntoView {
                     </a>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; <span id="current-year"></span> | All rights reserved.</p>
+                    <p>"© " {year} " | All rights reserved."</p>
                 </div>
             </div>
         </footer>
-
-        <script>
-            // Automatically update the copyright year
-            "document.getElementById('current-year').textContent = new Date().getFullYear();"
-        </script>
     }
 }
