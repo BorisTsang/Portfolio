@@ -23,16 +23,14 @@ pub fn App() -> impl IntoView {
         </Script>
 
         <Router>
-            <div class="app">
-                <Header/>
-                <main class="main-content">
-                    <Routes fallback=NotFound>
-                        <Route path=path!("/") view=HomePage/>
-                        <Route path=path!("/projects") view=Projects/>
-                    </Routes>
-                </main>
-                <Footer/>
-            </div>
+            <Header/>
+            <main class="main-content">
+                <Routes fallback=NotFound>
+                    <Route path=path!("/") view=HomePage/>
+                    <Route path=path!("/projects") view=Projects/>
+                </Routes>
+            </main>
+            <Footer/>
         </Router>
     }
 }
