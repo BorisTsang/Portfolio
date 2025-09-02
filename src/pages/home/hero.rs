@@ -45,7 +45,7 @@ pub fn Hero() -> impl IntoView {
         }
 
         .hero-title {
-            font-size: clamp(2rem, 6vw, 4rem); /* Smaller base size for non-gradient text */
+            font-size: clamp(2rem, 6vw, 4rem);
             font-weight: 800;
             line-height: 1.2;
             margin-bottom: var(--spacing-lg);
@@ -53,11 +53,8 @@ pub fn Hero() -> impl IntoView {
         }
 
         .hero-title .text-gradient {
-            font-size: clamp(2.5rem, 7vw, 5rem); /* Larger size for gradient text */
-            font-weight: 900; /* Slightly bolder for emphasis */
-            background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
-            color: transparent;
-            background-clip: text;
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 900;
         }
 
         .hero-subtitle {
@@ -74,6 +71,26 @@ pub fn Hero() -> impl IntoView {
             justify-content: center;
             flex-wrap: wrap;
         }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: clamp(1.5rem, 5vw, 3rem);
+            }
+
+            .hero-title .text-gradient {
+                font-size: clamp(2rem, 6vw, 3.5rem);
+            }
+
+            .hero-subtitle {
+                font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+                gap: var(--spacing-md);
+            }
+        }
     };
 
     view! { class=css,
@@ -85,10 +102,8 @@ pub fn Hero() -> impl IntoView {
                     </div>
                     <h1 class="hero-title">
                         "Building "
-                        <span class="text-gradient">"Secure "</span>
-                        "& "
-                        <span class="text-gradient">"Interactive "</span>
-                        "Tech"
+                        <span class="text-gradient">"Secure & Interactive"</span>
+                        " Tech"
                     </h1>
                     <p class="hero-subtitle">
                         "I’m a young tech enthusiast creating secure embedded systems and engaging games."

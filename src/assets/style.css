@@ -5,11 +5,13 @@
     --color-surface: #f8fafc;
     --color-surface-elevated: #f1f5f9;
     --color-border: #e2e8f0;
-    --color-text-primary: #94a3b8;
-    --color-text-secondary: #475569;
+    --color-text-primary: #7e94b0;
+    --color-text-secondary: #737272;
     --color-text-tertiary: #64748b;
-    --color-accent: #3b82f6;
+    --color-accent: #609dff;
     --color-accent-hover: #2563eb;
+    --color-secondary: #6b7280;
+    --color-secondary-hover: #4b5563;
     --color-gradient-start: #3b82f6;
     --color-gradient-end: #8b5cf6;
 
@@ -49,12 +51,14 @@
     padding: 0;
 }
 
+/* Reset and base styles */
 html {
     scroll-behavior: smooth;
     font-size: 16px;
     line-height: 1.5;
 }
 
+/* Reset and base styles */
 body {
     font-family: var(--font-family-sans);
     background-color: var(--color-bg);
@@ -73,19 +77,23 @@ h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
 }
 
+/* Typography */
 h1 {
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 700;
 }
 
+/* Typography */
 h2 {
     font-size: clamp(2rem, 4vw, 3rem);
 }
 
+/* Typography */
 h3 {
     font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
+/* Typography */
 p {
     line-height: 1.7;
     color: var(--color-text-secondary);
@@ -93,7 +101,60 @@ p {
     overflow-wrap: break-word;
 }
 
+/* Typography */
 a {
     color: inherit;
     text-decoration: none;
+}
+
+/* Gradient text support for global use */
+.text-gradient {
+    background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+/* Button styles for global use */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    line-height: 1.5;
+}
+
+/* Button styles for global use */
+.btn-primary {
+    background: var(--color-accent);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Button styles for global use */
+.btn-primary:hover {
+    background: var(--color-accent-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Button styles for global use */
+.btn-secondary {
+    background: var(--color-surface-elevated);
+    color: var(--color-secondary);
+    border: 1px solid var(--color-border);
+}
+
+/* Button styles for global use */
+.btn-secondary:hover {
+    background: var(--color-secondary);
+    color: white;
+    transform: translateY(-1px);
 }
